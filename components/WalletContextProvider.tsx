@@ -1,4 +1,4 @@
-import { FC, ReactNode, useMemo } from "react";
+import { FC, ReactNode } from "react";
 import {
   ConnectionProvider,
   WalletProvider,
@@ -10,7 +10,7 @@ require("@solana/wallet-adapter-react-ui/styles.css");
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const endpoint = web3.clusterApiUrl("devnet");
-  const wallets = useMemo(() => [], []);
+  const wallets = [new walletAdapterWallets.PhantomWalletAdapter()];
 
   return (
     <ConnectionProvider endpoint={endpoint}>
